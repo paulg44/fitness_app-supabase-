@@ -7,5 +7,5 @@ test("homepage renders", () => {
   render(<Homepage />);
   const header = screen.getByRole("heading");
 
-  expect(header).toBeInTheDocument();
+  expect(header).not.toBeInTheDocument();
 });
