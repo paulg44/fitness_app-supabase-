@@ -1,8 +1,25 @@
 // Sign Up Form Unit Tests
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import RegisterForm from "./RegisterForm";
 
 test("registration form renders", () => {
   render(<RegisterForm />);
+});
+
+test("form renders input fields", () => {
+  render(<RegisterForm />);
+
+  const createUsername = screen.getByRole("textbox", {
+    name: "Create Username",
+  });
+  const enterEmail = screen.getByRole("textbox", { name: "Enter Email" });
+  // I tried to test that password field was rendering however it says it is not available, so I switched it to an email type and it passed the test, I assume this is to do with security of the type password so instead we use getByLabelText
+  const createPassword = screen.getByLabelText("Create Password");
+  const submitBtn = screen.getByRole("button", { name: "Register" });
+
+  expect(createUsername).toBeInTheDocument();
+  expect(enterEmail).toBeInTheDocument();
+  expect(createPassword).toBeInTheDocument();
+  expect(submitBtn).toBeInTheDocument();
 });

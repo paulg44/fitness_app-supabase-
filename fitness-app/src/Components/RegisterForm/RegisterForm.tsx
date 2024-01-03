@@ -1,6 +1,6 @@
 // Sign Up Form Component
 
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./RegisterForm.css";
 
 function RegisterForm() {
@@ -18,6 +18,7 @@ function RegisterForm() {
         <Form.Label>Create Password</Form.Label>
         <Form.Control type="password" placeholder="password"></Form.Control>
       </Form.Group>
+      <Button type="submit">Register</Button>
     </Form>
   );
 }
