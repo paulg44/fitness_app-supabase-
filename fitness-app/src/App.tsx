@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Homepage from "./Pages/Homepage/Homepage";
 import About from "./Pages/About/About";
 import EnterLogForm from "./Components/EnterLogForm/EnterLogForm";
+import RegisterForm from "./Components/RegisterForm/RegisterForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/enterLogs" element={<EnterLogForm />}></Route>
+        <Route path="/register" element={<RegisterForm />}></Route>
       </Routes>
     </>
   );

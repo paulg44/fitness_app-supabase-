@@ -1,9 +1,9 @@
 // Sign Up Form Component
 
 import { Form } from "react-bootstrap";
-import "./SignUpForm.css";
+import "./RegisterForm.css";
 
-function SignUpForm() {
+function RegisterForm() {
   return (
     <Form>
       <Form.Group controlId="createUsername">
@@ -22,4 +22,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default RegisterForm;
