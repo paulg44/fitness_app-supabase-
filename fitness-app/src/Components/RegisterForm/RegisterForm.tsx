@@ -3,8 +3,10 @@
 import { Button, Form } from "react-bootstrap";
 import "./RegisterForm.css";
 import { ChangeEvent, useState } from "react";
+import supabase from "../../supabaseClient";
 
 function RegisterForm() {
+  // console.log(supabase);
   // States
   const [createUsername, setCreateUsername] = useState("");
   const [enterEmail, setEnterEmail] = useState("");
@@ -31,6 +33,15 @@ function RegisterForm() {
     setCreatePassword(e.target.value);
     console.log(createPassword);
   }
+
+  // // On Registration
+  // async function handleRegistration(e: FormEvent<HTMLFormElement>) {
+  //   e.preventDefault()
+
+  //   try {
+  //     const
+  //   }
+  // }
 
   return (
     <Form>
