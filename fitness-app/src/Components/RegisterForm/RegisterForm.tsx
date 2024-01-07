@@ -2,7 +2,7 @@
 
 import { Button, Form } from "react-bootstrap";
 import "./RegisterForm.css";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import supabase from "../../supabaseClient";
 
 function RegisterForm() {
@@ -35,16 +35,29 @@ function RegisterForm() {
   }
 
   // // On Registration
-  // async function handleRegistration(e: FormEvent<HTMLFormElement>) {
-  //   e.preventDefault()
+  async function handleRegistration(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-  //   try {
-  //     const
-  //   }
-  // }
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: enterEmail,
+        password: createPassword,
+      });
+
+      if (error) {
+        console.error("Error signing up:", error.message);
+        return;
+      }
+
+      const user = data?.user;
+      console.log("User sign up:", user);
+    } catch (error) {
+      console.error("Error:", (error as Error).message);
+    }
+  }
 
   return (
-    <Form>
+    <Form onSubmit={handleRegistration}>
       <Form.Group controlId="createUsername">
         <Form.Label>Create Username</Form.Label>
         <Form.Control
