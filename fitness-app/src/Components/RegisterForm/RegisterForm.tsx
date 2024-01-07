@@ -1,5 +1,7 @@
 // Sign Up Form Component
 
+// !!!!!! RLS IS CURRENTLY TURNED OFF IN PRODUCTION WHILST I RESEARCH RLS POLICIES !!!!!!!!!
+
 import { Button, Form } from "react-bootstrap";
 import "./RegisterForm.css";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -38,21 +40,30 @@ function RegisterForm() {
   async function handleRegistration(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: enterEmail,
-        password: createPassword,
-      });
+    const { data, error } = await supabase.auth.signUp({
+      email: enterEmail,
+      password: createPassword,
+    });
 
-      if (error) {
-        console.error("Error signing up:", error.message);
-        return;
-      }
+    if (error) {
+      console.error("Error signing up:", error.message);
+      return;
+    }
 
-      const user = data?.user;
+    const user = data?.user;
+    if (user) {
       console.log("User sign up:", user);
-    } catch (error) {
-      console.error("Error:", (error as Error).message);
+
+      const { data, error } = await supabase
+        .from("users")
+        .insert([{ email: enterEmail, username: createUsername }])
+        .select();
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        console.log(data);
+      }
     }
   }
 
