@@ -23,3 +23,7 @@ test("form renders input fields", () => {
   expect(createPassword).toBeInTheDocument();
   expect(submitBtn).toBeInTheDocument();
 });
+
+// Test states update
+
+// Test Form submission
