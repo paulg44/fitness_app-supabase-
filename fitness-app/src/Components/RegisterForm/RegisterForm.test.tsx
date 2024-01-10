@@ -24,6 +24,7 @@ test("form renders input fields", () => {
   expect(submitBtn).toBeInTheDocument();
 });
 
+// ## Currently researching mocks ##
 // Test states update
 
 // Test Form submission
