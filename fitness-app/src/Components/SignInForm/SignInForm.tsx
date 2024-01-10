@@ -4,10 +4,10 @@ import { Button, Form } from "react-bootstrap";
 import "./SignInForm.css";
 import supabase from "../../supabaseClient";
 import { ChangeEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function SignInForm() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // States
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
@@ -41,7 +41,7 @@ function SignInForm() {
 
       if (data) {
         console.log(data);
-        navigate("/");
+        // navigate("/");
       }
     } catch (error) {
       console.error("Unexpected error:", error);

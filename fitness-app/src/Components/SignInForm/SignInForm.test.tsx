@@ -11,7 +11,7 @@ test("form renders input fields", () => {
   render(<SignInForm />);
 
   const enterUsername = screen.getByRole("textbox", {
-    name: "Enter Username",
+    name: "Enter Email",
   });
   const enterPassword = screen.getByLabelText("Enter Password");
 
