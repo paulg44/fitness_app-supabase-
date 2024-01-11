@@ -1,7 +1,13 @@
 // Enter Log Form Component
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import supabase from "../../supabaseClient";
+
+/* ## TODOS
+      - make type on distance interval
+      - calculate pace
+*/
 
 function EnterLogForm() {
   // States
@@ -48,8 +54,34 @@ function EnterLogForm() {
     console.log(enterDescription);
   }
 
+  // Add run to database
+  async function handleLogRun(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const { data, error } = await supabase
+      .from("LogsTest")
+      .insert([
+        {
+          date: enterDate,
+          distance: enterDistance,
+          duration: enterDuration,
+          surface: selectedSurface,
+          description: enterDescription,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.log("Error with data", error);
+    }
+
+    if (data) {
+      console.log(data);
+    }
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleLogRun}>
       <Form.Group className="mb-3" controlId="formEnterDate">
         <Form.Label>Enter Date</Form.Label>
         <Form.Control
