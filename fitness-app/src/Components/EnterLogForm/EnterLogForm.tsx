@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import supabase from "../../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 /* ## TODOS
       - make type on distance interval
@@ -10,6 +11,7 @@ import supabase from "../../supabaseClient";
 */
 
 function EnterLogForm() {
+  const navigate = useNavigate();
   // States
   const [enterDate, setEnterDate] = useState("");
   // Possibly change these 2 states from a string
@@ -77,6 +79,7 @@ function EnterLogForm() {
 
     if (data) {
       console.log(data);
+      navigate("/");
     }
   }
 
