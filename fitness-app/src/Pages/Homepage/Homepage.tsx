@@ -1,11 +1,11 @@
 // Homepage Page Component
 
 // Imports
+
 import "./Homepage.css";
 import { Button } from "react-bootstrap";
 
 function Homepage() {
-  // Retrieve data
   return (
     <div className="homepage container-fluid">
       <h1>Fitness App (name pending)</h1>
