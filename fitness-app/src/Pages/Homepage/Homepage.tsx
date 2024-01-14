@@ -5,12 +5,13 @@ import "./Homepage.css";
 import { Button } from "react-bootstrap";
 
 function Homepage() {
+  // Retrieve data
   return (
     <div className="homepage container-fluid">
       <h1>Fitness App (name pending)</h1>
       <div>
         <Button href="/enterLogs">Log an activity</Button>
-        <Button>View Logs</Button>
+        <Button href="/logs">View Logs</Button>
         <Button>Schedule</Button>
       </div>
     </div>

@@ -9,6 +9,7 @@ import About from "./Pages/About/About";
 import EnterLogForm from "./Components/EnterLogForm/EnterLogForm";
 import RegisterForm from "./Components/RegisterForm/RegisterForm";
 import SignInForm from "./Components/SignInForm/SignInForm";
+import Logs from "./Pages/Logs/Logs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/enterLogs" element={<EnterLogForm />}></Route>
         <Route path="/register" element={<RegisterForm />}></Route>
         <Route path="/signIn" element={<SignInForm />}></Route>
+        <Route path="/logs" element={<Logs />}></Route>
       </Routes>
     </>
   );

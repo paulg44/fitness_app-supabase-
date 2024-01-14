@@ -3,6 +3,6 @@
 import { render } from "@testing-library/react";
 import EnterLogForm from "./EnterLogForm";
 
-test("form renders", () => {
+test("form renders", async () => {
   render(<EnterLogForm />);
 });

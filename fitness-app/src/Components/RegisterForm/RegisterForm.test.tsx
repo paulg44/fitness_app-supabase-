@@ -3,11 +3,11 @@
 import { render, screen } from "@testing-library/react";
 import RegisterForm from "./RegisterForm";
 
-test("registration form renders", () => {
+test("registration form renders", async () => {
   render(<RegisterForm />);
 });
 
-test("form renders input fields", () => {
+test("form renders input fields", async () => {
   render(<RegisterForm />);
 
   const createUsername = screen.getByRole("textbox", {
