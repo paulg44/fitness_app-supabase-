@@ -8,6 +8,7 @@ import supabase from "../../supabaseClient";
 /* ## TODOS
       - make type on distance interval
       - calculate pace
+      - the dropdown adds a number not the string to database ! changed value to assigned strings !
       - sort navigation to pass tests
 */
 
@@ -16,8 +17,8 @@ function EnterLogForm() {
   // States
   const [enterDate, setEnterDate] = useState("");
   // Possibly change these 2 states from a string
-  const [enterDistance, setEnterDistance] = useState("");
-  const [enterDuration, setEnterDuration] = useState("");
+  const [enterDistance, setEnterDistance] = useState<number>(0);
+  const [enterDuration, setEnterDuration] = useState<number>(0);
   const [selectedSurface, setSelectedSurface] = useState("");
   const [enterDescription, setEnterDescription] = useState("");
 
@@ -32,14 +33,16 @@ function EnterLogForm() {
   // Handle Distance
   function handleDistance(e: ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
-    setEnterDistance(e.target.value);
+    const value = e.target.value;
+    setEnterDistance(parseFloat(value));
     console.log(enterDistance);
   }
 
   // Handle Duration
   function handleDuration(e: ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
-    setEnterDuration(e.target.value);
+    const value = e.target.value;
+    setEnterDuration(parseFloat(value));
     console.log(enterDuration);
   }
 
@@ -113,9 +116,9 @@ function EnterLogForm() {
         <Form.Label>Select Surface</Form.Label>
         <Form.Select aria-label="Select Surface" onChange={handleSurface}>
           <option></option>
-          <option value="1">Road</option>
-          <option value="2">Track</option>
-          <option value="3">Trail</option>
+          <option value="Road">Road</option>
+          <option value="Track">Track</option>
+          <option value="Trail">Trail</option>
         </Form.Select>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formEnterDesc">
