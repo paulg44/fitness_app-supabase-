@@ -1,12 +1,11 @@
 // Navbar Component
 
-import { Nav } from "react-bootstrap";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <Nav>
+    <nav className="navbar">
       <div className="logo">LOGO</div>
       <div className="links">
         <ul>
@@ -25,7 +24,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </Nav>
+    </nav>
   );
 }
 

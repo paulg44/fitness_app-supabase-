@@ -1,6 +1,6 @@
 // Sign Up Form Unit Tests
 
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import RegisterForm from "./RegisterForm";
 
 test("registration form renders", async () => {
@@ -22,6 +22,42 @@ test("form renders input fields", async () => {
   expect(enterEmail).toBeInTheDocument();
   expect(createPassword).toBeInTheDocument();
   expect(submitBtn).toBeInTheDocument();
+});
+
+test("inputs username change on event", () => {
+  render(<RegisterForm />);
+
+  const usernameInput = screen.getByRole("textbox", {
+    name: "Create Username",
+  }) as HTMLInputElement;
+
+  fireEvent.change(usernameInput, { target: { value: "testUsername" } });
+
+  expect(usernameInput.value).toBe("testUsername");
+});
+
+test("inputs email change on event", () => {
+  render(<RegisterForm />);
+
+  const emailInput = screen.getByRole("textbox", {
+    name: "Enter Email",
+  }) as HTMLInputElement;
+
+  fireEvent.change(emailInput, { target: { value: "testEmail" } });
+
+  expect(emailInput.value).toBe("testEmail");
+});
+
+test("inputs password change on event", () => {
+  render(<RegisterForm />);
+
+  const passwordInput = screen.getByLabelText(
+    "Create Password"
+  ) as HTMLInputElement;
+
+  fireEvent.change(passwordInput, { target: { value: "testPassword" } });
+
+  expect(passwordInput.value).toBe("testPassword");
 });
 
 // ## Currently researching mocks ##
