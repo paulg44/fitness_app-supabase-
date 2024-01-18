@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="logo">LOGO</div>
+      <div className="logo">Supabase Version</div>
       <div className="links">
         <ul>
           <li>
